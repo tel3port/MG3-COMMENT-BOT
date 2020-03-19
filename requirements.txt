@@ -1,0 +1,6 @@
+selenium==3.141.0
+heroku3==4.2.1
+lxml==4.5.0
+beautifulsoup4==4.8.2
+http-request-randomizer==1.2.3
+colorama==0.4.3
