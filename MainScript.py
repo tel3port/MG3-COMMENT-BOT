@@ -190,7 +190,7 @@ class CommentsBot:
             gls.sleep_time()
 
         except Exception as em:
-            print('comment Error occurred ' + str(em))
+            print(f'comment Error occurred with url: {random_post_url}' + str(em))
             print(traceback.format_exc())
 
         finally:
