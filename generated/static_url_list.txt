@@ -21230,7 +21230,6 @@ https://blog.jayride.com/oceania/
 https://blog.jayride.com/airport-transfer/indonesia/denpasar-airport-dps
 https://blog.jayride.com/airport-transfer/united-states/los-angeles-airport-lax
 https://www.thebarefootnomad.com/travel-tips/25-great-tips-for-planning-your-trip-from-top-travel-bloggers/
-https://www.thebarefootnomad.com/ https:/www.facebook.com/thebarefootnomad
 https://www.thebarefootnomad.com/topics/travel-tips/
 https://www.thebarefootnomad.com/travel-tips/how-to-find-the-cheapest-flight-to-anywhere/
 https://www.thebarefootnomad.com/topics/costa-rica/
@@ -22188,7 +22187,7 @@ https://www.cheapfaremart.com/flights/melbourne-mel-flight-deals
 https://www.cheapfaremart.com/blog/travel-tips/
 https://www.cheapfaremart.com/blog/carnival/
 https://www.cheapfaremart.com/flights/corporate-travel
-https://www.cheapfaremart.com/blog/ https:/www.cheapfaremart.com/flights/auckland-akl-flight-deals
+https:/www.cheapfaremart.com/flights/auckland-akl-flight-deals
 https://www.cheapfaremart.com/blog/rio-de-janeiro-carnival-travel-guide/
 https://www.cheapfaremart.com/flights/first-and-business-class-flight-deals
 https://www.cheapfaremart.com/flights/thanksgiving-flight
