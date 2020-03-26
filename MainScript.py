@@ -11,6 +11,12 @@ from http_request_randomizer.requests.proxy.requestProxy import RequestProxy
 import globals as gls
 
 
+def random_static_url_path():
+    static_url_list_paths = ["urls/static_url_list_1.txt"]
+
+    return static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]
+
+
 def open_everything():
     with open("dictionary/adjectives.txt") as adj_file:
         global adjectives
@@ -63,6 +69,10 @@ def open_everything():
     with open("dictionary/parsed_jokes.txt") as jokes_file:
         global jokes
         jokes = [line.strip() for line in jokes_file]
+
+    with open("dictionary/profit_syn.txt") as prof_file:
+        global prof
+        prof = [line.strip() for line in prof_file]
 
 
 open_everything()
@@ -128,10 +138,11 @@ class CommentsBot:
         random_phrase = STATIC_PHRASES[randint(0, len(STATIC_PHRASES) - 1)]
         random_article_syn = articles[randint(0, len(articles) - 1)]
         random_joke = jokes[randint(0, len(jokes) - 1)]
+        random_prof = prof[randint(0, len(prof) - 1)]
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        last_segment = f"My latest PROFITABLE project at: {random_lander}"
+        last_segment = f"My latest {random_prof} project at: {random_lander}"
 
         final_comment = f"{random_comm} "
         final_complement = f" {random_comp} \n {last_segment}"
