@@ -157,10 +157,10 @@ class CommentsBot:
         return landers[randint(0, len(landers) - 1)]
 
     def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
-        comment_xpath = '//*[contains(@id="comment")]'
-        author_xpath = '//*[contains(@id="author")]'
-        email_xpath = '//*[contains(@id="email")]'
-        url_xpath = '//*[contains(@id="url")]'
+        comment_xpath = '//*[@id="comment"]'
+        author_xpath = '//*[@id="author"]'
+        email_xpath = '//*[@id="email"]'
+        url_xpath = '//*[@id="url"]'
         submit_xpath = '//*[contains(@id,"submit")]'
         try:
 
@@ -228,7 +228,7 @@ if __name__ == "__main__":
                 gls.sleep_time()
 
                 count += 1
-                if count == randint(20, 45):
+                if count == randint(10, 25):
                     break
 
         bot.clean_up()
