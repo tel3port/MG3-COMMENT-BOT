@@ -182,6 +182,8 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
             gls.sleep_time()
+            self.driver.execute_script("window.scrollBy(0,100)", "")
+            gls.sleep_time()
             submit_element = self.driver.find_element_by_xpath(submit_xpath)
             gls.sleep_time()
             submit_element.click()
