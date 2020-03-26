@@ -134,11 +134,11 @@ class CommentsBot:
         last_segment = f"My latest PROFITABLE project at: {random_lander}"
 
         final_comment = f"{random_comm} "
-        final_complement = f" {random_comp} "
-        final_prov = f" {random_prov}. "
-        final_phrase = f" {random_phrase}. "
+        final_complement = f" {random_comp} \n {last_segment}"
+        final_prov = f" {random_prov}. \n {last_segment}"
+        final_phrase = f" {random_phrase}. \n {last_segment}"
 
-        final_joke = f" {random_joke}. {last_segment}"
+        final_joke = f" {random_joke}. \n {last_segment}"
 
         response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
 
