@@ -180,9 +180,15 @@ class CommentsBot:
             self.driver.get(random_post_url)
             time.sleep(5)
 
-            jetpack_frame = self.driver.find_element_by_xpath(comment_frame_xpath)
+            jetpack_frame = None
+            try:
 
-            if jetpack_frame:
+                jetpack_frame = self.driver.find_element_by_xpath(comment_frame_xpath)
+
+            except Exception as e:
+                print(e)
+
+            if jetpack_frame is not None:
                 gls.sleep_time()
                 self.driver.switch_to.frame('jetpack_remote_comment')
                 gls.sleep_time()
