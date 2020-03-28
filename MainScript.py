@@ -167,28 +167,31 @@ class CommentsBot:
     def random_lander_getter():
         return landers[randint(0, len(landers) - 1)]
 
+    def jetpack_frame_finder(self):
+        comment_frame_xpath = '//*[@id="jetpack_remote_comment"]'
+
+        jetpack_frame = None
+        try:
+            jetpack_frame = self.driver.find_element_by_xpath(comment_frame_xpath)
+
+        except Exception as e:
+            print(e)
+
+        return jetpack_frame
+
     def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
         comment_xpath = '//*[@id="comment"]'
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
         submit_xpath = '//*[contains(@id,"submit")]'
-        comment_frame_xpath = '//*[@id="jetpack_remote_comment"]'
 
         try:
 
             self.driver.get(random_post_url)
             time.sleep(5)
 
-            jetpack_frame = None
-            try:
-
-                jetpack_frame = self.driver.find_element_by_xpath(comment_frame_xpath)
-
-            except Exception as e:
-                print(e)
-
-            if jetpack_frame is not None:
+            if self.jetpack_frame_finder() is not None:
                 gls.sleep_time()
                 self.driver.switch_to.frame('jetpack_remote_comment')
                 gls.sleep_time()
