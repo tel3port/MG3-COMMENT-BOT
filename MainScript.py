@@ -221,6 +221,9 @@ class CommentsBot:
             print(f'comment Error occurred with url: {random_post_url}' + str(em))
             print(traceback.format_exc())
 
+            if 'invalid session id' in str(em):
+                self.clean_up()
+
         finally:
             print("comment() done")
 
