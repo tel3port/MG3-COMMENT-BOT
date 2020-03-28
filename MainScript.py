@@ -229,7 +229,7 @@ class CommentsBot:
 
     def clean_up(self):
 
-        time.sleep(randint(500, 2000))
+        time.sleep(randint(50, 200))
 
         self.restart_application()
 
