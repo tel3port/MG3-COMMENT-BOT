@@ -173,17 +173,25 @@ class CommentsBot:
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
         submit_xpath = '//*[contains(@id,"submit")]'
+        comment_frame_xpath = '//*[@id="jetpack_remote_comment"]'
+
         try:
 
             self.driver.get(random_post_url)
             time.sleep(5)
 
-            # Scroll down to bottom
-            # self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            jetpack_frame = self.driver.find_element_by_xpath(comment_frame_xpath)
 
-            # scroll to element
-            self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_xpath(url_xpath))
-            gls.sleep_time()
+            if jetpack_frame:
+                gls.sleep_time()
+                self.driver.switch_to.frame('jetpack_remote_comment')
+                gls.sleep_time()
+
+            else:
+                # scroll to element
+                gls.sleep_time()
+                self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_xpath(url_xpath))
+                gls.sleep_time()
 
             self.driver.find_element_by_xpath(comment_xpath).send_keys(random_comment)
             gls.sleep_time()
