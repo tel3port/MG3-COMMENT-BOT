@@ -184,7 +184,7 @@ class CommentsBot:
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
-        submit_xpath = '//*[contains(@id,"submit")]'
+        submit_xpath = '//*[(@id,"submit")]'
 
         try:
 
@@ -210,7 +210,7 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
             gls.sleep_time()
-            self.driver.execute_script("window.scrollBy(0,100)", "")
+            self.driver.execute_script("window.scrollBy(0,10)", "")
             gls.sleep_time()
             submit_element = self.driver.find_element_by_xpath(submit_xpath)
             gls.sleep_time()
