@@ -184,7 +184,7 @@ class CommentsBot:
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
-        submit_xpath = '//*[@id,"submit"]'
+        submit_xpath = '//*[@type="submit"]'
 
         try:
 
@@ -218,7 +218,7 @@ class CommentsBot:
             gls.sleep_time()
 
         except Exception as em:
-            print(f'comment Error occurred with url: {random_post_url}' + str(em))
+            print(f'comment Error occurred with url: {random_post_url} ' + str(em))
             print(traceback.format_exc())
 
             if 'invalid session id' in str(em):
