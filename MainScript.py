@@ -74,6 +74,10 @@ def open_everything():
         global prof
         prof = [line.strip() for line in prof_file]
 
+    with open("dictionary/new_syn.txt") as new_file:
+        global news
+        news = [line.strip() for line in new_file]
+
 
 open_everything()
 
@@ -139,10 +143,11 @@ class CommentsBot:
         random_article_syn = articles[randint(0, len(articles) - 1)]
         random_joke = jokes[randint(0, len(jokes) - 1)]
         random_prof = prof[randint(0, len(prof) - 1)]
+        random_new = news[randint(0, len(news) - 1)]
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        last_segment = f"My latest {random_prof} project at: {random_lander}"
+        last_segment = f"My {random_new} {random_prof} project at: {random_lander}"
 
         final_comment = f"{random_comm} "
         final_complement = f" {random_comp} \n {last_segment}"
