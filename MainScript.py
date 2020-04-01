@@ -184,17 +184,46 @@ class CommentsBot:
 
         return jetpack_frame
 
+    def comment_submit_finder(self):
+        submit_xpath = '//*[@id="comment-submit"]'
+
+        xpath_element = None
+        try:
+            xpath_element = self.driver.find_element_by_xpath(submit_xpath)
+
+        except Exception as e:
+            print(e)
+
+        return xpath_element
+
     def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
+        policy_xpath = '//*[@type="submit"]'
         comment_xpath = '//*[@id="comment"]'
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
-        submit_xpath = '//*[@type="submit"]'
+        submit_xpath = '//*[@id="comment-submit"]'
 
         try:
 
             self.driver.get(random_post_url)
             time.sleep(5)
+
+            try:
+                gls.sleep_time()
+                policy_element = self.driver.find_element_by_class_name('accept')
+                gls.sleep_time()
+                policy_element.click()
+            except Exception as e:
+                print("policy click error ", str(e))
+
+            try:
+                gls.sleep_time()
+                policy_element = self.driver.find_element_by_xpath(policy_xpath)
+                gls.sleep_time()
+                policy_element.click()
+            except Exception as e:
+                print("policy click error ", str(e))
 
             if self.jetpack_frame_finder() is not None:
                 gls.sleep_time()
@@ -217,10 +246,13 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.execute_script("window.scrollBy(0,10)", "")
             gls.sleep_time()
-            submit_element = self.driver.find_element_by_xpath(submit_xpath)
-            gls.sleep_time()
-            submit_element.click()
-            gls.sleep_time()
+
+            submit_element_1 = self.comment_submit_finder()
+
+            if submit_element_1 is not None:
+                gls.sleep_time()
+                submit_element_1.click()
+                gls.sleep_time()
 
         except Exception as em:
             print(f'comment Error occurred with url: {random_post_url} ' + str(em))
