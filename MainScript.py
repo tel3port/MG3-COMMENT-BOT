@@ -260,7 +260,7 @@ if __name__ == "__main__":
         # breaks the cycle after a given number of comments to force script tp get another ip address
         if len(parsed_links_set) > 0:
             for link in list(parsed_links_set):
-                bot.comment(link, bot.response_generator(), bot.random_name_getter(), bot.random_email_getter(),bot.random_lander_getter())
+                bot.comment(link, bot.response_generator(), bot.random_name_getter(), bot.random_email_getter(), bot.random_lander_getter())
                 gls.sleep_time()
 
                 count += 1
@@ -270,4 +270,5 @@ if __name__ == "__main__":
         bot.clean_up()
         break
     print("done and dusted for this iteration!")
+
 
