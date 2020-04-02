@@ -202,7 +202,6 @@ class CommentsBot:
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
-        submit_xpath = '//*[@id="comment-submit"]'
 
         try:
 
