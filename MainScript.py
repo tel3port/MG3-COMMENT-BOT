@@ -12,7 +12,10 @@ import globals as gls
 
 
 def random_static_url_path():
-    static_url_list_paths = ["urls/static_url_list_1.txt"]
+    static_url_list_paths = ["urls/static_url_list_1.txt",
+                             "urls/static_url_list_2.txt",
+                             "urls/static_url_list_3.txt",
+                             "urls/static_url_list_4.txt"]
 
     return static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]
 
@@ -274,7 +277,7 @@ if __name__ == "__main__":
     count = 0
     while 1:
 
-        with open(f"generated/static_url_list.txt", "r") as internal_link_file:
+        with open(random_static_url_path(), "r") as internal_link_file:
             parsed_links = [line.strip() for line in internal_link_file]
 
             # to remove duplicates
