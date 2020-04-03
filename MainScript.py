@@ -221,6 +221,7 @@ class CommentsBot:
         author_xpath = '//*[@id="author"]'
         email_xpath = '//*[@id="email"]'
         url_xpath = '//*[@id="url"]'
+        print(f'POST BEING WORKED ON: {random_post_url}')
 
         try:
 
@@ -265,8 +266,8 @@ class CommentsBot:
             self.driver.execute_script("window.scrollBy(0,10)", "")
             gls.sleep_time()
 
-            submit_element_1 = self.comment_submit_finder()
-            submit_element_2 = self.submit_finder()
+            submit_element_1 = self.comment_submit_finder()  # '//*[@id="comment-submit"]'
+            submit_element_2 = self.submit_finder()  # '//*[@id="submit"]'
 
             if submit_element_1 is not None:
                 gls.sleep_time()
@@ -319,6 +320,7 @@ if __name__ == "__main__":
                 gls.sleep_time()
 
                 count += 1
+                print(f"count number: {count}")
                 if count == randint(10, 25):
                     break
 
