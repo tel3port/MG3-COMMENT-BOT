@@ -292,12 +292,15 @@ class CommentsBot:
 
         time.sleep(randint(50, 200))
 
+        self.driver.delete_all_cookies()
         self.restart_application()
 
 
 if __name__ == "__main__":
-    count = 0
+
     while 1:
+        count = 0
+        random_cycle_nums = randint(10, 25)
 
         with open(random_static_url_path(), "r") as internal_link_file:
             parsed_links = [line.strip() for line in internal_link_file]
@@ -321,11 +324,11 @@ if __name__ == "__main__":
 
                 count += 1
                 print(f"count number: {count}")
-                if count == randint(10, 25):
+                if count == random_cycle_nums:
                     break
 
         bot.clean_up()
-        break
-    print("done and dusted for this iteration!")
+        # break
+
 
 
