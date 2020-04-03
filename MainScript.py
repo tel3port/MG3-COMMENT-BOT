@@ -272,7 +272,7 @@ class CommentsBot:
                 gls.sleep_time()
                 submit_element_1.click()
                 gls.sleep_time()
-            elif submit_element_1 is not None:
+            elif submit_element_2 is not None:
                 gls.sleep_time()
                 submit_element_2.click()
                 gls.sleep_time()
