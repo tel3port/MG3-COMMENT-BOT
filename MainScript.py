@@ -15,9 +15,9 @@ def random_static_url_path():
     static_url_list_paths = ["urls/static_url_list_1.txt",
                              "urls/static_url_list_2.txt",
                              "urls/static_url_list_3.txt",
-                             "urls/static_url_list_4.txt"
-                             "urls/static_url_list_5.txt"
-                             "urls/static_url_list_6.txt"
+                             "urls/static_url_list_4.txt",
+                             "urls/static_url_list_5.txt",
+                             "urls/static_url_list_6.txt",
                              "urls/static_url_list_7.txt"
                              ]
 
