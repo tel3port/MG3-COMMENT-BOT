@@ -15,7 +15,10 @@ def random_static_url_path():
     static_url_list_paths = ["urls/static_url_list_1.txt",
                              "urls/static_url_list_2.txt",
                              "urls/static_url_list_3.txt",
-                             "urls/static_url_list_4.txt"]
+                             "urls/static_url_list_4.txt"
+                             "urls/static_url_list_5.txt"
+                             "urls/static_url_list_6.txt"
+                             ]
 
     return static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]
 
@@ -199,6 +202,18 @@ class CommentsBot:
 
         return xpath_element
 
+    def submit_finder(self):
+        submit_xpath = '//*[@id="submit"]'
+
+        xpath_element = None
+        try:
+            xpath_element = self.driver.find_element_by_xpath(submit_xpath)
+
+        except Exception as e:
+            print(e)
+
+        return xpath_element
+
     def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
         policy_xpath = '//*[@type="submit"]'
         comment_xpath = '//*[@id="comment"]'
@@ -250,10 +265,15 @@ class CommentsBot:
             gls.sleep_time()
 
             submit_element_1 = self.comment_submit_finder()
+            submit_element_2 = self.submit_finder()
 
             if submit_element_1 is not None:
                 gls.sleep_time()
                 submit_element_1.click()
+                gls.sleep_time()
+            elif submit_element_1 is not None:
+                gls.sleep_time()
+                submit_element_2.click()
                 gls.sleep_time()
 
         except Exception as em:
