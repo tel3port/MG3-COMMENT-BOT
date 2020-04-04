@@ -21,7 +21,12 @@ def random_static_url_path():
                              "urls/static_url_list_7.txt",
                              "urls/static_url_list_8.txt",
                              "urls/static_url_list_9.txt",
-                             "urls/static_url_list_10.txt"
+                             "urls/static_url_list_10.txt",
+                             "urls/static_url_list_11.txt",
+                             "urls/static_url_list_12.txt",
+                             "urls/static_url_list_13.txt",
+                             "urls/static_url_list_14.txt",
+                             "urls/static_url_list_15.txt"
                              ]
 
     return static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]
@@ -218,6 +223,18 @@ class CommentsBot:
 
         return xpath_element
 
+    def fl_comment_finder(self):
+        submit_xpath = '//*[@id="fl-comment-form-submit"]'
+
+        xpath_element = None
+        try:
+            xpath_element = self.driver.find_element_by_xpath(submit_xpath)
+
+        except Exception as e:
+            print(e)
+
+        return xpath_element
+
     def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
         policy_xpath = '//*[@type="submit"]'
         comment_xpath = '//*[@id="comment"]'
@@ -263,14 +280,20 @@ class CommentsBot:
             self.driver.find_element_by_xpath(author_xpath).send_keys(random_author)
             gls.sleep_time()
             self.driver.find_element_by_xpath(email_xpath).send_keys(random_email)
-            gls.sleep_time()
-            self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
-            gls.sleep_time()
+
+            try:
+                gls.sleep_time()
+                self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
+                gls.sleep_time()
+            except Exception as ex:
+                print("url loader error: ", str(ex))
+
             self.driver.execute_script("window.scrollBy(0,10)", "")
             gls.sleep_time()
 
             submit_element_1 = self.comment_submit_finder()  # '//*[@id="comment-submit"]'
             submit_element_2 = self.submit_finder()  # '//*[@id="submit"]'
+            submit_element_3 = self.fl_comment_finder()  # '//*[@id="fl-comment-form-submit"]'
 
             if submit_element_1 is not None:
                 gls.sleep_time()
@@ -279,6 +302,10 @@ class CommentsBot:
             elif submit_element_2 is not None:
                 gls.sleep_time()
                 submit_element_2.click()
+                gls.sleep_time()
+            elif submit_element_3 is not None:
+                gls.sleep_time()
+                submit_element_3.click()
                 gls.sleep_time()
 
         except Exception as em:
