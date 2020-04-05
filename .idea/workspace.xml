@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_13.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_14.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_15.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urls/static_url_list_16.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urls/static_url_list_17.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urls/static_url_list_18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urls/static_url_list_19.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urls/static_url_list_20.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainScript.py" afterDir="false" />
     </list>
