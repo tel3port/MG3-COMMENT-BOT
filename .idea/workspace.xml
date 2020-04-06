@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_21.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_22.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_23.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_24.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_25.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainScript.py" afterDir="false" />
-    </list>
+    <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
