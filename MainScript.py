@@ -12,27 +12,7 @@ import globals as gls
 
 
 def random_static_url_path():
-    static_url_list_paths = ["urls/static_url_list_1.txt",
-                             "urls/static_url_list_2.txt",
-                             "urls/static_url_list_3.txt",
-                             "urls/static_url_list_4.txt",
-                             "urls/static_url_list_5.txt",
-                             "urls/static_url_list_6.txt",
-                             "urls/static_url_list_7.txt",
-                             "urls/static_url_list_8.txt",
-                             "urls/static_url_list_9.txt",
-                             "urls/static_url_list_10.txt",
-                             "urls/static_url_list_11.txt",
-                             "urls/static_url_list_12.txt",
-                             "urls/static_url_list_13.txt",
-                             "urls/static_url_list_14.txt",
-                             "urls/static_url_list_15.txt",
-                             "urls/static_url_list_16.txt",
-                             "urls/static_url_list_17.txt",
-                             "urls/static_url_list_18.txt",
-                             "urls/static_url_list_19.txt",
-                             "urls/static_url_list_20.txt"
-                             ]
+    static_url_list_paths = os.listdir('./urls')
 
     return static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]
 
