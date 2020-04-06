@@ -98,6 +98,10 @@ def open_everything():
         global news
         news = [line.strip() for line in new_file]
 
+    with open("dictionary/expound_syn.txt") as exp_file:
+        global exp
+        exp = [line.strip() for line in exp_file]
+
 
 open_everything()
 
@@ -164,16 +168,16 @@ class CommentsBot:
         random_joke = jokes[randint(0, len(jokes) - 1)]
         random_prof = prof[randint(0, len(prof) - 1)]
         random_new = news[randint(0, len(news) - 1)]
+        random_exp = exp[randint(0, len(exp) - 1)]
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        last_segment = f"My {random_new} {random_prof} project at: {random_lander}"
+        last_segment = f"My {random_new} {random_prof} project at: {random_lander} {random_exp}"
 
         final_comment = f"{random_comm} "
         final_complement = f" {random_comp} \n {last_segment}"
         final_prov = f" {random_prov}. \n {last_segment}"
         final_phrase = f" {random_phrase}. \n {last_segment}"
-
         final_joke = f" {random_joke}. \n {last_segment}"
 
         response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
@@ -222,18 +226,6 @@ class CommentsBot:
         xpath_element = None
         try:
             xpath_element = self.driver.find_element_by_xpath(submit_xpath)
-
-        except Exception as e:
-            print(e)
-
-        return xpath_element
-
-    def contact_form_submit_finder(self):
-        submit_xpath = '//*[@class="submit"]'
-
-        xpath_element = None
-        try:
-            xpath_element = self.driver.find_element_by_class_name('pushbutton-wide')
 
         except Exception as e:
             print(e)
@@ -295,7 +287,6 @@ class CommentsBot:
                 except Exception as x:
                     print(x)
 
-
             self.driver.find_element_by_xpath(comment_xpath).send_keys(random_comment)
             gls.sleep_time()
             self.driver.find_element_by_xpath(author_xpath).send_keys(random_author)
@@ -315,7 +306,6 @@ class CommentsBot:
             submit_element_1 = self.comment_submit_finder()  # '//*[@id="comment-submit"]'
             submit_element_2 = self.submit_finder()  # '//*[@id="submit"]'
             submit_element_3 = self.fl_comment_finder()  # '//*[@id="fl-comment-form-submit"]'
-            submit_element_4 = self.contact_form_submit_finder()  # '//*[@class="submit"]'
 
             if submit_element_1 is not None:
                 gls.sleep_time()
@@ -328,10 +318,6 @@ class CommentsBot:
             elif submit_element_3 is not None:
                 gls.sleep_time()
                 submit_element_3.click()
-                gls.sleep_time()
-            elif submit_element_4 is not None:
-                gls.sleep_time()
-                submit_element_4.click()
                 gls.sleep_time()
 
         except Exception as em:
