@@ -207,8 +207,8 @@ async def main():
 
 
 def create_append_text_file(extd_links, my_uuid):
-    if not os.path.exists(f'/home/m/PycharmProjects/MG3-COMMENT-BOT/urls/static_url_list_{my_uuid}.txt'):
-        with open(f'/home/m/PycharmProjects/MG3-COMMENT-BOT/urls/static_url_list_{my_uuid}.txt', 'a') as final_urls_list_file:
+    if not os.path.exists(f'/home/m/PycharmProjects/MG3-COMMENT-BOT/EXTRACTOR/urls/static_url_list_{my_uuid}.txt'):
+        with open(f'/home/m/PycharmProjects/MG3-COMMENT-BOT/EXTRACTOR/urls/static_url_list_{my_uuid}.txt', 'a') as final_urls_list_file:
             for single_lk in extd_links:
                 print(single_lk.strip(), file=final_urls_list_file)
 
@@ -237,7 +237,6 @@ def push_to_github():
 
 
 if __name__ == "__main__":
-    ms.push_to_github()
     count = 0
     while 1:
 
@@ -357,9 +356,6 @@ if __name__ == "__main__":
 
         hard_file_cleanup()
 
-        count += 1
-        if count == 5:
-            push_to_github()
 
 
 print("END OF THE LINE")

@@ -12,9 +12,9 @@ import globals as gls
 
 
 def random_static_url_path():
-    static_url_list_paths = os.listdir('./urls')
+    static_url_list_paths = os.listdir('./EXTRACTOR/urls')
 
-    return f'urls/{static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]}'
+    return f'EXTRACTOR/urls/{static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]}'
 
 
 def open_everything():
