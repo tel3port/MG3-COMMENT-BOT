@@ -356,6 +356,10 @@ if __name__ == "__main__":
 
         hard_file_cleanup()
 
+        count += 1
+        if count == 5:
+            push_to_github()
+
 
 
 print("END OF THE LINE")
