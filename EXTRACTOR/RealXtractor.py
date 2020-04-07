@@ -212,6 +212,9 @@ def create_append_text_file(extd_links, my_uuid):
             for single_lk in extd_links:
                 print(single_lk.strip(), file=final_urls_list_file)
 
+def windscribe_vpn_rotate():
+    os.system(f"windscribe connect {random_proxy_location()}")
+
 
 def soft_file_cleanup():
     open('extracted/internal_links.txt', 'w').close()
@@ -239,126 +242,128 @@ def push_to_github():
 if __name__ == "__main__":
     count = 0
     while 1:
+        try:
 
-        with open("extracted/search_terms.txt") as search_terms_file:
-            global search_terms
-            search_terms = [line.strip() for line in search_terms_file]
+            with open("extracted/search_terms.txt") as search_terms_file:
+                global search_terms
+                search_terms = [line.strip() for line in search_terms_file]
 
-            for _ in range(4):
-                os.system(f"windscribe connect {random_proxy_location()}")
+                for _ in range(4):
 
-                random_search_term = search_terms[randint(0, len(search_terms) - 2)]
-                print(f"searching for blogs on: {random_search_term}")
+                    random_search_term = search_terms[randint(0, len(search_terms) - 2)]
+                    print(f"searching for blogs on: {random_search_term}")
 
-                search_and_write(random_search_term, random_tld(), randint(5, 10), randint(5, 10), randint(20, 30), randint(25, 35))
+                    search_and_write(random_search_term, random_tld(), randint(5, 10), randint(5, 10), randint(20, 30), randint(25, 35))
 
-                time.sleep(randint(12, 30))
+                    time.sleep(randint(12, 30))
 
-            print("DONE WITH THE BLOG EXTRACTION")
+                print("DONE WITH THE BLOG EXTRACTION")
 
-        # # ===============OPENS A LIST OF BLOGS ==================================================================
+            # # ===============OPENS A LIST OF BLOGS ==================================================================
 
-        with open(f"extracted/blog_link_file.txt", "r") as blog_list_file:
-            main_blog_list = [line.strip() for line in blog_list_file]
+            with open(f"extracted/blog_link_file.txt", "r") as blog_list_file:
+                main_blog_list = [line.strip() for line in blog_list_file]
 
-        # ===============LOOPS THRU EACH BLOG AND EXTRACTS ALL INTERNAL AND EXTERNAL URLS========================
-        for single_blog in main_blog_list:
-            # initialize the set of links (unique links)
-            internal_urls = set()
-            external_urls = set()
-            internal_urls.clear()
-            external_urls.clear()
+            # ===============LOOPS THRU EACH BLOG AND EXTRACTS ALL INTERNAL AND EXTERNAL URLS========================
+            for single_blog in main_blog_list:
+                # initialize the set of links (unique links)
+                internal_urls = set()
+                external_urls = set()
+                internal_urls.clear()
+                external_urls.clear()
 
-            os.system(f"windscribe connect {random_proxy_location()}")
+                # os.system(f"windscribe connect {random_proxy_location()}")
 
-            print(f"WORKING ON: {single_blog}")
-            try:
-                crawl(single_blog, max_urls=130)
-            except Exception as e:
-                print(e)
-            print("[+] Total Internal links:", len(internal_urls))
-            print("[+] Total External links:", len(external_urls))
-            print("[+] Total URLs:", len(external_urls) + len(internal_urls))
+                print(f"WORKING ON: {single_blog}")
+                try:
+                    crawl(single_blog, max_urls=130)
+                except Exception as e:
+                    print(e)
+                print("[+] Total Internal links:", len(internal_urls))
+                print("[+] Total External links:", len(external_urls))
+                print("[+] Total URLs:", len(external_urls) + len(internal_urls))
 
-            # todo find out why do i need this urlparse
-            # domain_name = urlparse(single_blog).netloc
+                # todo find out why do i need this urlparse
+                # domain_name = urlparse(single_blog).netloc
 
-            # save the internal links to a file ====> {domain_name}_internal_links.txt"
-            with open(f"extracted/internal_links.txt", "a") as f:
-                for internal_link in internal_urls:
-                    if not ('/tag/' in internal_link or "/categor" in internal_link
-                            or "faq" in internal_link or "events" in internal_link
-                            or "policy" in internal_link or "terms" in internal_link
-                            or "photos" in internal_link or "author" in internal_link
-                            or "label" in internal_link or "video" in internal_link
-                            or "search" in internal_link or "png" in internal_link
-                            or "pdf" in internal_link or "jpg" in internal_link
-                            or "facebook" in internal_link or "twitter" in internal_link
-                            or "nytimes" in internal_link or "wsj" in internal_link
-                            or "reddit" in internal_link or "bbc" in internal_link
-                            or "wikipedia" in internal_link or "guardian" in internal_link
-                            or "flickr" in internal_link or "cnn" in internal_link
-                            or "ttps://wordpre" in internal_link or "google" in internal_link
-                            or "cookies" in internal_link or "instagram" in internal_link
-                            or "youtube" in internal_link or "spotify" in internal_link
-                            or "mail" in internal_link or "pinterest" in internal_link
-                            or "tumblr" in internal_link or "label" in internal_link
-                            or "dribble" in internal_link or "unsplash" in internal_link
-                            or "automattic" in internal_link or "facebook" in internal_link
-                            or "amazon" in internal_link or "amzn" in internal_link
-                            or "doc" in internal_link or "amzn" in internal_link
-                            or int_checker(internal_link)) or "jsp" in internal_link:
-                        print(internal_link.strip(), file=f)
-                    else:
-                        pass
-            #
-            # with open(f"extracted/external_links.txt", "a") as f:
-            #     for external_link in external_urls:
-            #         if not ('/tag/' in external_link or "/categor" in external_link
-            #                 or "faq" in external_link or "events" in external_link
-            #                 or "policy" in external_link or "terms" in external_link
-            #                 or "photos" in external_link or "author" in external_link
-            #                 or "label" in external_link or "video" in external_link
-            #                 or "search" in external_link or "png" in external_link
-            #                 or "pdf" in external_link or "jpg" in external_link
-            #                 or "facebook" in external_link or "twitter" in external_link
-            #                 or "nytimes" in external_link or "wsj" in external_link
-            #                 or "reddit" in external_link or "bbc" in external_link
-            #                 or "wikipedia" in external_link or "guardian" in external_link
-            #                 or "flickr" in external_link or "cnn" in external_link
-            #                 or "ttps://wordpre" in external_link or "google" in external_link
-            #                 or "cookies" in external_link or "instagram" in external_link
-            #                 or "youtube" in external_link or "mail" in external_link
-            #                 or "automattic" in external_link or "facebook" in external_link
-            #                 or int_checker(external_link)) or "jsp" in external_link:
-            #             print(external_link.strip(), file=f)
-            #         else:
-            #             pass
+                # save the internal links to a file ====> {domain_name}_internal_links.txt"
+                with open(f"extracted/internal_links.txt", "a") as f:
+                    for internal_link in internal_urls:
+                        if not ('/tag/' in internal_link or "/categor" in internal_link
+                                or "faq" in internal_link or "events" in internal_link
+                                or "policy" in internal_link or "terms" in internal_link
+                                or "photos" in internal_link or "author" in internal_link
+                                or "label" in internal_link or "video" in internal_link
+                                or "search" in internal_link or "png" in internal_link
+                                or "pdf" in internal_link or "jpg" in internal_link
+                                or "facebook" in internal_link or "twitter" in internal_link
+                                or "nytimes" in internal_link or "wsj" in internal_link
+                                or "reddit" in internal_link or "bbc" in internal_link
+                                or "wikipedia" in internal_link or "guardian" in internal_link
+                                or "flickr" in internal_link or "cnn" in internal_link
+                                or "ttps://wordpre" in internal_link or "google" in internal_link
+                                or "cookies" in internal_link or "instagram" in internal_link
+                                or "youtube" in internal_link or "spotify" in internal_link
+                                or "mail" in internal_link or "pinterest" in internal_link
+                                or "tumblr" in internal_link or "label" in internal_link
+                                or "dribble" in internal_link or "unsplash" in internal_link
+                                or "automattic" in internal_link or "facebook" in internal_link
+                                or "amazon" in internal_link or "amzn" in internal_link
+                                or "doc" in internal_link or "amzn" in internal_link
+                                or int_checker(internal_link)) or "jsp" in internal_link:
+                            print(internal_link.strip(), file=f)
+                        else:
+                            pass
+                #
+                # with open(f"extracted/external_links.txt", "a") as f:
+                #     for external_link in external_urls:
+                #         if not ('/tag/' in external_link or "/categor" in external_link
+                #                 or "faq" in external_link or "events" in external_link
+                #                 or "policy" in external_link or "terms" in external_link
+                #                 or "photos" in external_link or "author" in external_link
+                #                 or "label" in external_link or "video" in external_link
+                #                 or "search" in external_link or "png" in external_link
+                #                 or "pdf" in external_link or "jpg" in external_link
+                #                 or "facebook" in external_link or "twitter" in external_link
+                #                 or "nytimes" in external_link or "wsj" in external_link
+                #                 or "reddit" in external_link or "bbc" in external_link
+                #                 or "wikipedia" in external_link or "guardian" in external_link
+                #                 or "flickr" in external_link or "cnn" in external_link
+                #                 or "ttps://wordpre" in external_link or "google" in external_link
+                #                 or "cookies" in external_link or "instagram" in external_link
+                #                 or "youtube" in external_link or "mail" in external_link
+                #                 or "automattic" in external_link or "facebook" in external_link
+                #                 or int_checker(external_link)) or "jsp" in external_link:
+                #             print(external_link.strip(), file=f)
+                #         else:
+                #             pass
 
-            # # ===============PARSES THRU URLS AND SAVES THOSE THAT MOST LIKELY HAVE A COMMENT BOX ==============
+                # # ===============PARSES THRU URLS AND SAVES THOSE THAT MOST LIKELY HAVE A COMMENT BOX ==============
 
-            # saves those that have comment boxes into  FINAL_URL_LIST
-            try:
-                loop = asyncio.get_event_loop()
-                loop.run_until_complete(main())
-            except Exception as e:
-                print(e)
+                # saves those that have comment boxes into  FINAL_URL_LIST
+                try:
+                    loop = asyncio.get_event_loop()
+                    loop.run_until_complete(main())
+                except Exception as e:
+                    print(e)
 
-            soft_file_cleanup()
+                soft_file_cleanup()
 
-        # ===============COPIES ALL EXTRACTED FINAL URLS TO THE OTHER SCRIPT AND CLEARS UP ASSOCIATED FILES ================
+            # ===============COPIES ALL EXTRACTED FINAL URLS TO THE OTHER SCRIPT AND CLEARS UP ASSOCIATED FILES ================
 
-        with open("extracted/FINAL_URL_LIST.txt") as extracted_links_file:
-            global extracted_links
-            extracted_links = [line.strip() for line in extracted_links_file]
+            with open("extracted/FINAL_URL_LIST.txt") as extracted_links_file:
+                global extracted_links
+                extracted_links = [line.strip() for line in extracted_links_file]
 
-        create_append_text_file(extracted_links, uuid.uuid4().hex)
+            create_append_text_file(extracted_links, uuid.uuid4().hex)
 
-        hard_file_cleanup()
+            hard_file_cleanup()
 
-        count += 1
-        if count == 5:
-            push_to_github()
+            count += 1
+            if count == 5:
+                push_to_github()
+        except Exception as exx:
+            print(str(exx))
 
 
 print("END OF THE LINE")
