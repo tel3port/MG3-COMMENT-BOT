@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_0bbf4956cd264ea4850b6ed237d496b4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_286ff51b7b6c4d25b54f0a8db394e17c.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_59ac548e32604b89818adcf6e9130fd8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_6f81c323d4f14df2bc5b3d8e34a345c7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_7461de603c114a7c8a9f0e90219c1713.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_ba496744505c487e84d4b503be00b82b.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/urls/static_url_list_c5a290991c6f4eca909e785cd7997bf8.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EXCTRACTOR/RealXtractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/EXCTRACTOR/RealXtractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EXCTRACTOR/extracted/blog_link_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EXCTRACTOR/extracted/blog_link_file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainScript.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/google_search_results_serpwow-1.1.9.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/serpwow/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/serpwow/google_search_results.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/serpwow/test.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RealXtractor">
+  <component name="RunManager" selected="Python.MainScript">
     <configuration name="MainScript" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MG3-COMMENT-BOT" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MainScript" />
         <item itemvalue="Python.RealXtractor" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.list_test" />
         <item itemvalue="Python.test_date" />
-        <item itemvalue="Python.MainScript" />
       </list>
     </recent_temporary>
   </component>
