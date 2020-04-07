@@ -101,6 +101,16 @@ total_urls_visited = 0
 wp_bot_name = "wp-mg3-comment-bot"
 
 
+def push_to_github():
+    try:
+        os.system('git add .')
+        os.system('git commit -m "added more static urls"')
+        os.system('git push https://tel3port:AjTdJsetif3Q5dn@github.com/tel3port/MG3-COMMENT-BOT.git --all')
+
+        print("5 new files hopefully pushed to github")
+    except Exception as ex:
+        print(str(ex))
+
 class CommentsBot:
     def __init__(self, bot_name, my_proxy):
         self.my_proxy = my_proxy
