@@ -212,6 +212,7 @@ def create_append_text_file(extd_links, my_uuid):
             for single_lk in extd_links:
                 print(single_lk.strip(), file=final_urls_list_file)
 
+
 def windscribe_vpn_rotate():
     os.system(f"windscribe connect {random_proxy_location()}")
 
@@ -249,7 +250,7 @@ if __name__ == "__main__":
                 search_terms = [line.strip() for line in search_terms_file]
 
                 for _ in range(4):
-
+                    # windscribe_vpn_rotate()
                     random_search_term = search_terms[randint(0, len(search_terms) - 2)]
                     print(f"searching for blogs on: {random_search_term}")
 
