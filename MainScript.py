@@ -172,7 +172,7 @@ class CommentsBot:
 
         # response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
 
-        response_list = [final_comment, final_joke]
+        response_list = [final_comment, final_phrase]
 
         return response_list[randint(0, len(response_list) - 1)]
 
