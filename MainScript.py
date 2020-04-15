@@ -164,13 +164,15 @@ class CommentsBot:
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         last_segment = f"My {random_new} {random_prof} project at: {random_lander} {random_exp}"
 
-        final_comment = f"{random_comm} "
+        final_comment = f"{random_comm} \n {last_segment} "
         final_complement = f" {random_comp} \n {last_segment}"
         final_prov = f" {random_prov}. \n {last_segment}"
         final_phrase = f" {random_phrase}. \n {last_segment}"
         final_joke = f" {random_joke}. \n {last_segment}"
 
-        response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
+        # response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
+
+        response_list = [final_comment, final_joke]
 
         return response_list[randint(0, len(response_list) - 1)]
 
@@ -322,7 +324,7 @@ class CommentsBot:
 
     def clean_up(self):
 
-        time.sleep(randint(50, 200))
+        time.sleep(randint(500, 2000))
 
         self.driver.delete_all_cookies()
         self.restart_application()

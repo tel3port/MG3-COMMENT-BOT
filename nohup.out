@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "MainScript.py", line 1, in <module>
-    from selenium import webdriver
-ModuleNotFoundError: No module named 'selenium'

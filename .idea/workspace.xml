@@ -2,38 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_0bbf4956cd264ea4850b6ed237d496b4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_18.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_23.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_25.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_286ff51b7b6c4d25b54f0a8db394e17c.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_59ac548e32604b89818adcf6e9130fd8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_6f81c323d4f14df2bc5b3d8e34a345c7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_7461de603c114a7c8a9f0e90219c1713.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_ba496744505c487e84d4b503be00b82b.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/static_url_list_c5a290991c6f4eca909e785cd7997bf8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/m.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/m.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainScript.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary/landers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/landers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nohup.out" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +32,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/EXCTRACTOR" />
-    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -91,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.MainScript">
+  <component name="RunManager" selected="Python.RealXtractor (1)">
     <configuration name="MainScript" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MG3-COMMENT-BOT" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,6 +78,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainScript.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RealXtractor (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MG3-COMMENT-BOT" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EXTRACTOR" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EXTRACTOR/RealXtractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,34 +170,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_date" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MG3-COMMENT-BOT" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_date.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RealXtractor (1)" />
         <item itemvalue="Python.MainScript" />
         <item itemvalue="Python.RealXtractor" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.list_test" />
-        <item itemvalue="Python.test_date" />
       </list>
     </recent_temporary>
   </component>
