@@ -396,7 +396,9 @@ class CommentsBot:
 
     def clean_up(self):
 
-        time.sleep(randint(500, 2000))
+        t = randint(500, 2000)
+        print(f"clean up sleep for {t} seconds")
+        time.sleep(t)
 
         self.driver.delete_all_cookies()
         self.restart_application()
