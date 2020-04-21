@@ -9,6 +9,10 @@ from urllib.request import urlparse, urljoin
 import colorama
 from http_request_randomizer.requests.proxy.requestProxy import RequestProxy
 import globals as gls
+import numpy as np
+import random
+import re
+from collections import defaultdict
 
 
 def random_static_url_path():
@@ -111,6 +115,7 @@ def push_to_github():
     except Exception as ex:
         print(str(ex))
 
+
 class CommentsBot:
     def __init__(self, bot_name, my_proxy):
         self.my_proxy = my_proxy
@@ -144,6 +149,7 @@ class CommentsBot:
         app = heroku_conn.apps()[self.bot_name]
         app.restart()
 
+
     @staticmethod
     def response_generator():
         random_adj = adjectives[randint(0, len(adjectives) - 1)]
@@ -164,18 +170,73 @@ class CommentsBot:
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         last_segment = f"My {random_new} {random_prof} project at: {random_lander} {random_exp}"
 
-        final_comment = f"{random_comm} \n {last_segment} "
-        final_complement = f" {random_comp} \n {last_segment}"
-        final_prov = f" {random_prov}. \n {last_segment}"
-        final_phrase = f" {random_phrase}. \n {last_segment}"
-        final_joke = f" {random_joke}. \n {last_segment}"
+        path = 'dictionary/placeholder_text.txt'
+        with open(path) as f:
+            text = f.read()
+        tokenized_text = [
+            word
+            for word in re.split('\W+', text)
+            if word != ''
+        ]
 
-        # response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
+        # Create graph.
+        markov_graph = defaultdict(lambda: defaultdict(int))
 
-        response_list = [final_comment, final_phrase]
+        last_word = tokenized_text[0].lower()
+        for word in tokenized_text[1:]:
+            word = word.lower()
+            markov_graph[last_word][word] += 1
+            last_word = word
 
-        return response_list[randint(0, len(response_list) - 1)]
+        # Preview graph.
+        limit = 3
+        for first_word in ('the', 'by', 'who'):
+            next_words = list(markov_graph[first_word].keys())[:limit]
+            # for next_word in next_words:
+            #     print(first_word, next_word)
 
+        def walk_graph(graph, distance=5, start_node=None):
+            """Returns a list of words from a randomly weighted walk."""
+            if distance <= 0:
+                return []
+
+            # If not given, pick a start node at random.
+            if not start_node:
+                start_node = random.choice(list(graph.keys()))
+
+            weights = np.array(
+                list(markov_graph[start_node].values()),
+                dtype=np.float64)
+            # Normalize word counts to sum to 1.
+            weights /= weights.sum()
+
+            # Pick a destination using weighted distribution.
+            choices = list(markov_graph[start_node].keys())
+            chosen_word = np.random.choice(choices, None, p=weights)
+
+            return [chosen_word] + walk_graph(
+                graph, distance=distance - 1,
+                start_node=chosen_word)
+
+        generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
+
+        test_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()} {last_segment.capitalize()}'
+        #
+        # final_comment = f"{random_comm} \n {last_segment} "
+        # final_complement = f" {random_comp} \n {last_segment}"
+        # final_prov = f" {random_prov}. \n {last_segment}"
+        # final_phrase = f" {random_phrase}. \n {last_segment}"
+        # final_joke = f" {random_joke}. \n {last_segment}"
+        #
+        # # response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
+
+        # response_list = [final_comment, final_phrase]
+        # print(test_comment)
+
+        # return response_list[randint(0, len(response_list) - 1)]
+
+        return test_comment
+    
     @staticmethod
     def random_email_getter():
         return emails[randint(0, len(emails) - 1)]
@@ -333,6 +394,7 @@ class CommentsBot:
 if __name__ == "__main__":
 
     while 1:
+        time.sleep(5)
         count = 0
         random_cycle_nums = randint(10, 25)
 
@@ -362,7 +424,7 @@ if __name__ == "__main__":
                     break
 
         bot.clean_up()
-        # break
+        break
 
 
 
