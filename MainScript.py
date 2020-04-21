@@ -13,6 +13,7 @@ import numpy as np
 import random
 import re
 from collections import defaultdict
+from bs4 import BeautifulSoup
 
 
 def random_static_url_path():
@@ -149,6 +150,14 @@ class CommentsBot:
         app = heroku_conn.apps()[self.bot_name]
         app.restart()
 
+    def wp_post_getter(self):
+        data = self.driver.page_source
+
+        soup = BeautifulSoup(data, "html.parser")
+
+        article = soup.find('div', class_="entry-content")
+
+        return article.text
 
     @staticmethod
     def response_generator():
@@ -170,12 +179,9 @@ class CommentsBot:
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         last_segment = f"My {random_new} {random_prof} project at: {random_lander} {random_exp}"
 
-        path = 'dictionary/placeholder_text.txt'
-        with open(path) as f:
-            text = f.read()
         tokenized_text = [
             word
-            for word in re.split('\W+', text)
+            for word in re.split('\W+', extracted_post)
             if word != ''
         ]
 
@@ -236,7 +242,7 @@ class CommentsBot:
         # return response_list[randint(0, len(response_list) - 1)]
 
         return test_comment
-    
+
     @staticmethod
     def random_email_getter():
         return emails[randint(0, len(emails) - 1)]
@@ -297,7 +303,7 @@ class CommentsBot:
 
         return xpath_element
 
-    def comment(self, random_post_url, random_comment, random_author, random_email, random_website):
+    def comment(self, random_post_url, random_author, random_email, random_website):
         policy_xpath = '//*[@type="submit"]'
         comment_xpath = '//*[@id="comment"]'
         author_xpath = '//*[@id="author"]'
@@ -309,6 +315,11 @@ class CommentsBot:
 
             self.driver.get(random_post_url)
             time.sleep(5)
+
+            global extracted_post
+            extracted_post = self.wp_post_getter()
+            random_comment = self.response_generator()
+            time.sleep(10)
 
             try:
                 gls.sleep_time()
@@ -353,7 +364,7 @@ class CommentsBot:
             except Exception as ex:
                 print("url loader error: ", str(ex))
 
-            self.driver.execute_script("window.scrollBy(0,10)", "")
+            self.driver.execute_script("window.scrollBy(0,50)", "")
             gls.sleep_time()
 
             submit_element_1 = self.comment_submit_finder()  # '//*[@id="comment-submit"]'
@@ -415,7 +426,7 @@ if __name__ == "__main__":
         # breaks the cycle after a given number of comments to force script tp get another ip address
         if len(parsed_links_set) > 0:
             for link in list(parsed_links_set):
-                bot.comment(link, bot.response_generator(), bot.random_name_getter(), bot.random_email_getter(), bot.random_lander_getter())
+                bot.comment(link, bot.random_name_getter(), bot.random_email_getter(), bot.random_lander_getter())
                 gls.sleep_time()
 
                 count += 1

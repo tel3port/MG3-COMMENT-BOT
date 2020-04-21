@@ -3,3 +3,4 @@ heroku3==4.2.1
 http-request-randomizer==1.2.3
 colorama==0.4.3
 numpy==1.18.3
+beautifulsoup4==4.9.0
