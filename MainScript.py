@@ -347,7 +347,7 @@ class CommentsBot:
 
             self.driver.find_element_by_xpath(comment_xpath).send_keys(random_comment)
             gls.sleep_time()
-            self.driver.find_element_by_xpath(author_xpath).send_keys(f'{random_author.upper()}-{randint(1000, 20000)}')
+            self.driver.find_element_by_xpath(author_xpath).send_keys(f'{random_author.upper()}')
             gls.sleep_time()
             self.driver.find_element_by_xpath(email_xpath).send_keys(random_email)
 
