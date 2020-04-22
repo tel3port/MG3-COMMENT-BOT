@@ -177,7 +177,7 @@ class CommentsBot:
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        last_segment = f"My {random_new} {random_prof} project at: {random_lander} {random_exp}"
+        last_segment = f"My {random_new} {random_prof} project at my site {random_exp}"
 
         tokenized_text = [
             word
