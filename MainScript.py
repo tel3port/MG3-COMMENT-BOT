@@ -226,12 +226,12 @@ class CommentsBot:
 
         generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
 
-        markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}.'
+        markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}. {last_segment.capitalize()}'
         final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}\n {last_segment.capitalize()} "
         final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()} \n {last_segment.capitalize()}"
-        final_prov = f"You know what they say: {random_prov.capitalize()}.{generated_sentence.capitalize()}"
+        final_prov = f"You know what they say: {random_prov.capitalize()}.{generated_sentence.capitalize()} {last_segment.capitalize()}"
         final_phrase = f"The author should know: {random_phrase.capitalize()}. {generated_sentence.capitalize()}\n {last_segment.capitalize()}"
-        final_joke = f"This post makes me remember a bad joke: {random_joke.capitalize()}. {generated_sentence.capitalize()}"
+        final_joke = f"This post makes me remember a bad joke: {random_joke.capitalize()}. {generated_sentence.capitalize()} {last_segment.capitalize()}"
 
         response_list = [markov_comment, final_comment, final_complement, final_prov, final_phrase, final_joke]
 
