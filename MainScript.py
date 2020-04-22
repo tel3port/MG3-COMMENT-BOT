@@ -108,7 +108,7 @@ wp_bot_name = "wp-mg3-comment-bot"
 
 def push_to_github():
     try:
-        os.system('git add .')
+        os.system('git add --all')
         os.system('git commit -m "added more static urls"')
         os.system('git push https://tel3port:AjTdJsetif3Q5dn@github.com/tel3port/MG3-COMMENT-BOT.git --all')
 
@@ -226,22 +226,16 @@ class CommentsBot:
 
         generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
 
-        test_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()} {last_segment.capitalize()}'
-        #
-        # final_comment = f"{random_comm} \n {last_segment} "
-        # final_complement = f" {random_comp} \n {last_segment}"
-        # final_prov = f" {random_prov}. \n {last_segment}"
-        # final_phrase = f" {random_phrase}. \n {last_segment}"
-        # final_joke = f" {random_joke}. \n {last_segment}"
-        #
-        # # response_list = [final_comment, final_complement, final_prov, final_phrase, final_joke]
+        markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}.'
+        final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}\n {last_segment.capitalize()} "
+        final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()} \n {last_segment.capitalize()}"
+        final_prov = f"You know what they say: {random_prov.capitalize()}.{generated_sentence.capitalize()}"
+        final_phrase = f"The author should know: {random_phrase.capitalize()}. {generated_sentence.capitalize()}\n {last_segment.capitalize()}"
+        final_joke = f"This post makes me remember a bad joke: {random_joke.capitalize()}. {generated_sentence.capitalize()}"
 
-        # response_list = [final_comment, final_phrase]
-        # print(test_comment)
+        response_list = [markov_comment, final_comment, final_complement, final_prov, final_phrase, final_joke]
 
-        # return response_list[randint(0, len(response_list) - 1)]
-
-        return test_comment
+        return response_list[randint(0, len(response_list) - 1)]
 
     @staticmethod
     def random_email_getter():
