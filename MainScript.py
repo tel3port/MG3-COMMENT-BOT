@@ -409,7 +409,7 @@ if __name__ == "__main__":
     while 1:
         time.sleep(5)
         count = 0
-        random_cycle_nums = randint(10, 25)
+        random_cycle_nums = randint(3, 7)
 
         with open(random_static_url_path(), "r") as internal_link_file:
             parsed_links = [line.strip() for line in internal_link_file]
