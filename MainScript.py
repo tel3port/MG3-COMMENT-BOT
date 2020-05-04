@@ -20,6 +20,7 @@ def random_static_url_path():
     static_url_list_paths = os.listdir('./EXTRACTOR/urls')
 
     return f'EXTRACTOR/urls/{static_url_list_paths[randint(0, len(static_url_list_paths) - 1)]}'
+    # return f'EXTRACTOR/urls/static_url_list_26f8faa8c60b4542aed6d89847441296.txt'
 
 
 def open_everything():
@@ -140,9 +141,9 @@ class CommentsBot:
             "proxyType": "MANUAL",
 
         }
-        # self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
-        chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        # chrome_options.add_argument("--headless")
+        # self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         print("my ip address", my_proxy_address)
 
     def restart_application(self):
@@ -177,8 +178,8 @@ class CommentsBot:
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-
+        # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
+        last_segment = f"we are making a short film about this. Watch trailer here: https://youtu.be/S2jpbMvsmvs"
         tokenized_text = [
             word
             for word in re.split('\W+', extracted_post)
@@ -227,9 +228,9 @@ class CommentsBot:
         generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
 
         markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}. {last_segment.capitalize()}'
-        final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}\n {last_segment.capitalize()} "
-        final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()} \n {last_segment.capitalize()}"
-        final_prov = f"You know what they say: {random_prov.capitalize()}.{generated_sentence.capitalize()} {last_segment.capitalize()}"
+        final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}. \n {last_segment.capitalize()} "
+        final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()}. \n {last_segment.capitalize()}"
+        final_prov = f"You know what they say: {random_prov.capitalize()}. {generated_sentence.capitalize()} {last_segment.capitalize()}"
         final_phrase = f"The author should know: {random_phrase.capitalize()}. {generated_sentence.capitalize()}\n {last_segment.capitalize()}"
         final_joke = f"This post makes me remember a bad joke: {random_joke.capitalize()}. {generated_sentence.capitalize()} {last_segment.capitalize()}"
 
@@ -351,14 +352,14 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.find_element_by_xpath(email_xpath).send_keys(random_email)
 
-            try:
-                gls.sleep_time()
-                self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
-                gls.sleep_time()
-            except Exception as ex:
-                print("url loader error: ", str(ex))
+            # try:
+            #     gls.sleep_time()
+            #     self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
+            #     gls.sleep_time()
+            # except Exception as ex:
+            #     print("url loader error: ", str(ex))
 
-            self.driver.execute_script("window.scrollBy(0,50)", "")
+            self.driver.execute_script("window.scrollBy(0,150)", "")
             gls.sleep_time()
 
             submit_element_1 = self.comment_submit_finder()  # '//*[@id="comment-submit"]'
