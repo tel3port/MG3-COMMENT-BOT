@@ -88,6 +88,10 @@ def open_everything():
         global exp
         exp = [line.strip() for line in exp_file]
 
+    with open("dictionary/film_syn.txt") as film_file:
+        global film
+        film = [line.strip() for line in film_file]
+
 
 open_everything()
 
@@ -175,11 +179,12 @@ class CommentsBot:
         random_prof = prof[randint(0, len(prof) - 1)]
         random_new = news[randint(0, len(news) - 1)]
         random_exp = exp[randint(0, len(exp) - 1)]
+        random_film = film[randint(0, len(film) - 1)]
 
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-        last_segment = f"we are making a short film about this. Watch trailer here: https://youtu.be/S2jpbMvsmvs"
+        last_segment = f"we are making a {random_film} about this. Watch trailer here: https://youtu.be/S2jpbMvsmvs"
         tokenized_text = [
             word
             for word in re.split('\W+', extracted_post)
