@@ -231,7 +231,7 @@ class CommentsBot:
                 start_node=chosen_word)
 
         generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
-
+        generated_sentence = ""
         markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}. {last_segment.capitalize()}'
         final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}. \n {last_segment.capitalize()} "
         final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()}. \n {last_segment.capitalize()}"
