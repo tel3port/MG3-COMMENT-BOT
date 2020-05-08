@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="" />
+    <list default="true" id="a0bf95bc-707e-49ca-a320-debaff2fac74" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EXTRACTOR/urls/static_url_list_4fedaf91f25d49829ff6638faa74798a.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EXTRACTOR/urls/static_url_list_74c69f8053c942da9618ea14d4c8acc0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EXTRACTOR/extracted/blog_link_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EXTRACTOR/extracted/blog_link_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EXTRACTOR/urls/static_url_list_ae93d804385e4f5e80f293f05096ac74.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainScript.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

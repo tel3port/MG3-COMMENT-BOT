@@ -1,6 +1,8 @@
 from selenium import webdriver
 from random import randint
 import os
+import numpy as np
+import random
 import traceback
 import heroku3
 import time
@@ -330,8 +332,53 @@ class CommentsBot:
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-        last_segment = f"we are making a {random_film} about this. Book for free here: https://free-online-movies.ucraft.site/"
+        last_segment = f"we are making a {random_film} about this. Book for free here: https://youtu.be/s2jpbmvsmvs"
+        tokenized_text = [
+            word
+            for word in re.split('\W+', extracted_post)
+            if word != ''
+        ]
 
+        # Create graph.
+        markov_graph = defaultdict(lambda: defaultdict(int))
+
+        last_word = tokenized_text[0].lower()
+        for word in tokenized_text[1:]:
+            word = word.lower()
+            markov_graph[last_word][word] += 1
+            last_word = word
+
+        # Preview graph.
+        limit = 3
+        for first_word in ('the', 'by', 'who'):
+            next_words = list(markov_graph[first_word].keys())[:limit]
+            # for next_word in next_words:
+            #     print(first_word, next_word)
+
+        def walk_graph(graph, distance=5, start_node=None):
+            """Returns a list of words from a randomly weighted walk."""
+            if distance <= 0:
+                return []
+
+            # If not given, pick a start node at random.
+            if not start_node:
+                start_node = random.choice(list(graph.keys()))
+
+            weights = np.array(
+                list(markov_graph[start_node].values()),
+                dtype=np.float64)
+            # Normalize word counts to sum to 1.
+            weights /= weights.sum()
+
+            # Pick a destination using weighted distribution.
+            choices = list(markov_graph[start_node].keys())
+            chosen_word = np.random.choice(choices, None, p=weights)
+
+            return [chosen_word] + walk_graph(
+                graph, distance=distance - 1,
+                start_node=chosen_word)
+
+        # generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
         generated_sentence = ""
         markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}. {last_segment.capitalize()}'
         final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}. \n {last_segment.capitalize()} "
@@ -529,8 +576,8 @@ if __name__ == "__main__":
 
         bot = CommentsBot(wp_bot_name, random_proxy)
 
-        # for _ in range(10):
-        #     bot.blog_extractor()
+        for _ in range(10):
+            bot.blog_extractor()
 
         # ===============LOOPS THRU EACH BLOG AND EXTRACTS ALL INTERNAL AND EXTERNAL URLS========================
 
