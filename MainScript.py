@@ -6,8 +6,6 @@ import heroku3
 import time
 from http_request_randomizer.requests.proxy.requestProxy import RequestProxy
 import globals as gls
-import numpy as np
-import random
 import re
 from collections import defaultdict
 import requests
@@ -274,9 +272,9 @@ class CommentsBot:
             "proxyType": "MANUAL",
 
         }
-        self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
-        # chrome_options.add_argument("--headless")
-        # self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        # self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        chrome_options.add_argument("--headless")
+        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         print("my ip address", my_proxy_address)
 
     def restart_application(self):
