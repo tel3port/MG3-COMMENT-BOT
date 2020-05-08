@@ -18,41 +18,41 @@ RESET = colorama.Fore.RESET
 total_urls_visited = 0
 
 
-def random_tld():
-    domains = ["co.uk", "com", "de", 'dz', 'al', 'cv', "hr", "ee", "fr", "mg"]
-
-    return domains[randint(0, len(domains) - 1)]
-
-
-def search_and_write(search_term, top_level, number, stat_point, stop_point, pause_time):
-    final_results = set()
-    try:
-        query = f'site:wordpress.com {search_term}'
-        for j in search(query, tld=top_level, num=number, start=stat_point, stop=stop_point, pause=pause_time):
-            char_list = j.split('.com')
-            result = f'{char_list[0]}.com'
-
-            final_results.add(result)
-
-            print(result)
-    except Exception as e:
-        print(e)
-        print(str(e))
-        if "too many requests" in str(e):
-            return
-
-    finally:
-        # save the external links to a file
-        with open(f"extracted/blog_link_file.txt", "a") as f:
-            for link in final_results:
-                print(f"writing: {link}")
-                print(f"{link.strip()}", file=f)
-
-        # saving all extracted urls to a master lis
-        with open(f"/home/m/Documents/blog_master_list.txt", "a") as f:
-            for link in final_results:
-                print(f"{link.strip()}", file=f)
-
+# def random_tld():
+#     domains = ["co.uk", "com", "de", 'dz', 'al', 'cv', "hr", "ee", "fr", "mg"]
+#
+#     return domains[randint(0, len(domains) - 1)]
+#
+#
+# def search_and_write(search_term, top_level, number, stat_point, stop_point, pause_time):
+#     final_results = set()
+#     try:
+#         query = f'site:wordpress.com {search_term}'
+#         for j in search(query, tld=top_level, num=number, start=stat_point, stop=stop_point, pause=pause_time):
+#             char_list = j.split('.com')
+#             result = f'{char_list[0]}.com'
+#
+#             final_results.add(result)
+#
+#             print(result)
+#     except Exception as e:
+#         print(e)
+#         print(str(e))
+#         if "too many requests" in str(e):
+#             return
+#
+#     finally:
+#         # save the external links to a file
+#         with open(f"extracted/blog_link_file.txt", "a") as f:
+#             for link in final_results:
+#                 print(f"writing: {link}")
+#                 print(f"{link.strip()}", file=f)
+#
+#         # saving all extracted urls to a master lis
+#         with open(f"/home/m/Documents/blog_master_list.txt", "a") as f:
+#             for link in final_results:
+#                 print(f"{link.strip()}", file=f)
+#
 
 def is_valid(url):
     """
@@ -62,30 +62,30 @@ def is_valid(url):
     return bool(parsed.netloc) and bool(parsed.scheme)
 
 
-def random_proxy_location():
-    locations = \
-        ['US-C',
-         'Ranch',
-         'Cub',
-         'Snow',
-         'Vice',
-         'Empire',
-         'Precedent',
-         'Dogg',
-         'Cobain',
-         'Granville',
-         'Vansterdam',
-         'Seine',
-         'Castle',
-         'Canal',
-         'Fjord',
-         'Crumpets',
-         'Custard',
-         'Alphorn',
-         'Victoria'
-
-         ]
-    return locations[randint(0, len(locations) - 1)]
+# def random_proxy_location():
+#     locations = \
+#         ['US-C',
+#          'Ranch',
+#          'Cub',
+#          'Snow',
+#          'Vice',
+#          'Empire',
+#          'Precedent',
+#          'Dogg',
+#          'Cobain',
+#          'Granville',
+#          'Vansterdam',
+#          'Seine',
+#          'Castle',
+#          'Canal',
+#          'Fjord',
+#          'Crumpets',
+#          'Custard',
+#          'Alphorn',
+#          'Victoria'
+#
+#          ]
+#     return locations[randint(0, len(locations) - 1)]
 
 
 def get_all_website_links(url):
@@ -213,8 +213,8 @@ def create_append_text_file(extd_links, my_uuid):
                 print(single_lk.strip(), file=final_urls_list_file)
 
 
-def windscribe_vpn_rotate():
-    os.system(f"windscribe connect {random_proxy_location()}")
+# def windscribe_vpn_rotate():
+#     os.system(f"windscribe connect {random_proxy_location()}")
 
 
 def soft_file_cleanup():
@@ -245,20 +245,20 @@ if __name__ == "__main__":
     while 1:
         try:
 
-            with open("extracted/search_terms.txt") as search_terms_file:
-                global search_terms
-                search_terms = [line.strip() for line in search_terms_file]
-
-                for _ in range(4):
-                    # windscribe_vpn_rotate()
-                    random_search_term = search_terms[randint(0, len(search_terms) - 2)]
-                    print(f"searching for blogs on: {random_search_term}")
-
-                    search_and_write(random_search_term, random_tld(), randint(5, 10), randint(5, 10), randint(20, 30), randint(25, 35))
-
-                    time.sleep(randint(12, 30))
-
-                print("DONE WITH THE BLOG EXTRACTION")
+            # with open("extracted/search_terms.txt") as search_terms_file:
+            #     global search_terms
+            #     search_terms = [line.strip() for line in search_terms_file]
+            #
+            #     for _ in range(4):
+            #         # windscribe_vpn_rotate()
+            #         random_search_term = search_terms[randint(0, len(search_terms) - 2)]
+            #         print(f"searching for blogs on: {random_search_term}")
+            #
+            #         search_and_write(random_search_term, random_tld(), randint(5, 10), randint(5, 10), randint(20, 30), randint(25, 35))
+            #
+            #         time.sleep(randint(12, 30))
+            #
+            #     print("DONE WITH THE BLOG EXTRACTION")
 
             # # ===============OPENS A LIST OF BLOGS ==================================================================
 
