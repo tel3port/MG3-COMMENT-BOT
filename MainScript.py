@@ -340,8 +340,7 @@ class CommentsBot:
                 graph, distance=distance - 1,
                 start_node=chosen_word)
 
-        # generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
-        generated_sentence = ""
+        generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
 
         return generated_sentence
 
@@ -365,7 +364,7 @@ class CommentsBot:
                 print(link.strip(), file=new_blogs_file)
 
     @staticmethod
-    def response_generator(self):
+    def response_generator():
         random_adj = adjectives[randint(0, len(adjectives) - 1)]
         random_adv = adverbs[randint(0, len(adverbs) - 1)]
         random_comm = comments[randint(0, len(comments) - 1)]
@@ -484,7 +483,7 @@ class CommentsBot:
             time.sleep(5)
 
             global extracted_post
-            extracted_post = self.wp_post_getter()
+            # extracted_post = self.wp_post_getter()
             random_comment = self.response_generator()
             time.sleep(10)
 
