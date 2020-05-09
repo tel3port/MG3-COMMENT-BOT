@@ -293,46 +293,8 @@ class CommentsBot:
 
         return article.text
 
-    def blog_extractor(self):
-        with open("EXTRACTOR/extracted/search_terms.txt") as search_terms_file:
-            search_terms = [line.strip() for line in search_terms_file]
-            random_search_term = search_terms[randint(0, len(search_terms) - 2)]
-            print(f"searching for blogs on: {random_search_term}")
-
-        self.driver.get(f'https://en.wordpress.com/tag/{random_search_term}/')
-
-        data = self.driver.page_source
-
-        soup = BeautifulSoup(data, "html.parser")
-
-        links_list = soup.find_all('a', class_="blog-url")
-
-        for single_link in links_list:
-            link = single_link['href']
-            with open("EXTRACTOR/extracted/blog_link_file.txt", "a") as new_blogs_file:
-                print(link.strip(), file=new_blogs_file)
-
     @staticmethod
-    def response_generator():
-        random_adj = adjectives[randint(0, len(adjectives) - 1)]
-        random_adv = adverbs[randint(0, len(adverbs) - 1)]
-        random_comm = comments[randint(0, len(comments) - 1)]
-        random_comp = complements[randint(0, len(complements) - 1)]
-        random_det = dets[randint(0, len(dets) - 1)]
-        random_lander = landers[randint(0, len(landers) - 1)]
-        random_prov = proverbs[randint(0, len(proverbs) - 1)]
-        random_phrase = STATIC_PHRASES[randint(0, len(STATIC_PHRASES) - 1)]
-        random_article_syn = articles[randint(0, len(articles) - 1)]
-        random_joke = jokes[randint(0, len(jokes) - 1)]
-        random_prof = prof[randint(0, len(prof) - 1)]
-        random_new = news[randint(0, len(news) - 1)]
-        random_exp = exp[randint(0, len(exp) - 1)]
-        random_film = film[randint(0, len(film) - 1)]
-
-        random_rant_syn = rants[randint(0, len(rants) - 1)]
-        first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
-        # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-        last_segment = f"we are making a {random_film} about this. Book for free here: https://youtu.be/s2jpbmvsmvs"
+    def markov_script():
         tokenized_text = [
             word
             for word in re.split('\W+', extracted_post)
@@ -380,6 +342,52 @@ class CommentsBot:
 
         # generated_sentence = f"{' '.join(walk_graph(markov_graph, distance=35))}...  "
         generated_sentence = ""
+
+        return generated_sentence
+
+    def blog_extractor(self):
+        with open("EXTRACTOR/extracted/search_terms.txt") as search_terms_file:
+            search_terms = [line.strip() for line in search_terms_file]
+            random_search_term = search_terms[randint(0, len(search_terms) - 2)]
+            print(f"searching for blogs on: {random_search_term}")
+
+        self.driver.get(f'https://en.wordpress.com/tag/{random_search_term}/')
+
+        data = self.driver.page_source
+
+        soup = BeautifulSoup(data, "html.parser")
+
+        links_list = soup.find_all('a', class_="blog-url")
+
+        for single_link in links_list:
+            link = single_link['href']
+            with open("EXTRACTOR/extracted/blog_link_file.txt", "a") as new_blogs_file:
+                print(link.strip(), file=new_blogs_file)
+
+    @staticmethod
+    def response_generator(self):
+        random_adj = adjectives[randint(0, len(adjectives) - 1)]
+        random_adv = adverbs[randint(0, len(adverbs) - 1)]
+        random_comm = comments[randint(0, len(comments) - 1)]
+        random_comp = complements[randint(0, len(complements) - 1)]
+        random_det = dets[randint(0, len(dets) - 1)]
+        random_lander = landers[randint(0, len(landers) - 1)]
+        random_prov = proverbs[randint(0, len(proverbs) - 1)]
+        random_phrase = STATIC_PHRASES[randint(0, len(STATIC_PHRASES) - 1)]
+        random_article_syn = articles[randint(0, len(articles) - 1)]
+        random_joke = jokes[randint(0, len(jokes) - 1)]
+        random_prof = prof[randint(0, len(prof) - 1)]
+        random_new = news[randint(0, len(news) - 1)]
+        random_exp = exp[randint(0, len(exp) - 1)]
+        random_film = film[randint(0, len(film) - 1)]
+
+        random_rant_syn = rants[randint(0, len(rants) - 1)]
+        first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
+        # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
+        last_segment = f"we are making a {random_film} about this. Book for free here: https://afflat3d1.com/lnk.asp?o=18224&c=918277&a=242672&k=3FDF02DD1551319D6CB62C5CED1B7762&l=19426"
+
+        generated_sentence = self.markov_script()
+
         markov_comment = f'{first_segment.capitalize()} {generated_sentence.capitalize()}. {last_segment.capitalize()}'
         final_comment = f"{random_comm.capitalize()} {generated_sentence.capitalize()}. \n {last_segment.capitalize()} "
         final_complement = f" {random_comp.capitalize()}. {generated_sentence.capitalize()}. \n {last_segment.capitalize()}"
@@ -460,7 +468,6 @@ class CommentsBot:
         print(f'POST BEING WORKED ON: {random_post_url}')
 
         random_num = randint(1, 100)
-        author_name = ''
 
         if random_num % 2 == 0:
             author_name = random_author.capitalize()
