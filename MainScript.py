@@ -523,12 +523,12 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.find_element_by_xpath(email_xpath).send_keys(random_email)
 
-            # try:
-            #     gls.sleep_time()
-            #     self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
-            #     gls.sleep_time()
-            # except Exception as ex:
-            #     print("url loader error: ", str(ex))
+            try:
+                gls.sleep_time()
+                self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
+                gls.sleep_time()
+            except Exception as ex:
+                print("url loader error: ", str(ex))
 
             self.driver.execute_script("window.scrollBy(0,150)", "")
             gls.sleep_time()
