@@ -1,6 +1,5 @@
 from selenium import webdriver
 from random import randint
-import os
 import numpy as np
 import random
 import traceback
@@ -383,7 +382,7 @@ class CommentsBot:
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-        last_segment = f"we are making a {random_film} about this. Book for free here:-> my7.travel.blog/awesome/"
+        last_segment = f'<a href="https://afflat3d1.com/lnk.asp?o=18224&c=918277&a=242672&k=3FDF02DD1551319D6CB62C5CED1B7762&l=19426">about this. Book for free here!</a>'
 
         # generated_sentence = self.markov_script()
         generated_sentence = ""
