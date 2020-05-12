@@ -383,7 +383,7 @@ class CommentsBot:
         random_rant_syn = rants[randint(0, len(rants) - 1)]
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
-        last_segment = f"we are making a {random_film} about this. Book for free here: https://my7.travel.blog/awesome/"
+        last_segment = f"we are making a {random_film} about this. Book for free here:-> my7.travel.blog/awesome/"
 
         # generated_sentence = self.markov_script()
         generated_sentence = ""
@@ -523,12 +523,12 @@ class CommentsBot:
             gls.sleep_time()
             self.driver.find_element_by_xpath(email_xpath).send_keys(random_email)
 
-            try:
-                gls.sleep_time()
-                self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
-                gls.sleep_time()
-            except Exception as ex:
-                print("url loader error: ", str(ex))
+            # try:
+            #     gls.sleep_time()
+            #     self.driver.find_element_by_xpath(url_xpath).send_keys(random_website)
+            #     gls.sleep_time()
+            # except Exception as ex:
+            #     print("url loader error: ", str(ex))
 
             self.driver.execute_script("window.scrollBy(0,150)", "")
             gls.sleep_time()
