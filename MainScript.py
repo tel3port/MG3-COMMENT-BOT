@@ -562,7 +562,7 @@ class CommentsBot:
 
     def clean_up(self):
 
-        t = randint(500, 2000)
+        t = randint(50000, 200000)
         print(f"clean up sleep for {t} seconds")
         time.sleep(t)
 
