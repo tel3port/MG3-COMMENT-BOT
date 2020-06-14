@@ -383,7 +383,7 @@ class CommentsBot:
         first_segment = f"{random_det} {random_article_syn} is {random_adv} {random_adj}!"
         # last_segment = f"My {random_new} {random_prof} {random_rant_syn.upper()} at my site {random_exp}"
         # last_segment = f' We are making a <a href="https://afflat3d1.com/lnk.asp?o=18224&c=918277&a=242672&k=3FDF02DD1551319D6CB62C5CED1B7762&l=19426"> {random_film}</a> about this. Book for free HERE!'
-        last_segment = f' We are making a  {random_film} about this. Book for free HERE! -> my7.travel.blog/awesome/'
+        last_segment = f' We are making a  {random_film} about this. Book for free HERE! -> https://surprise-me-playlists.herokuapp.com/'
 
         # generated_sentence = self.markov_script()
         generated_sentence = ""
@@ -562,7 +562,7 @@ class CommentsBot:
 
     def clean_up(self):
 
-        t = randint(50000, 200000)
+        t = randint(50, 200)
         print(f"clean up sleep for {t} seconds")
         time.sleep(t)
 
